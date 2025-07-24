@@ -1,4 +1,4 @@
-<div class="w-1/3 my-8">
+<div wire:poll.keep-alive class="w-1/3 my-8">
     <div class="mx-auto mb-8">
         <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Users List</h2>
     </div>
@@ -22,7 +22,7 @@
     </form>
 
     <ul role="list" class="divide-y divide-gray-100">
-        @foreach ($users as $user)
+        @foreach ($this->users() as $user)
             <li class="flex justify-between gap-x-6 py-5">
                 <div class="flex min-w-0 gap-x-4">
                     <img src="{{ $user->avatar ?? 'img/default-gambar.jpg' }}" alt=""
@@ -41,5 +41,5 @@
         @endforeach
 
     </ul>
-    {{ $users->links() }}
+    {{ $this->users()->links() }}
 </div>
